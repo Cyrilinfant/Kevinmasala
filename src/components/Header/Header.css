@@ -21,14 +21,14 @@
 
 .header-contents h2{
     font-weight: 500;
-    color: white;
+    color: #E32227;
     font-size: max(4.5vw,22px);
     background-color: transparent;
 }
 
 .header-contents p{
 
-    color: white;
+    color: #343a40;
     font-size: 3vw;
     background-color: transparent;
 }
