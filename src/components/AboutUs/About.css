@@ -1,0 +1,506 @@
+
+/* General reset for the banner */
+.banner {
+height: 100vh; /* Full viewport height */
+overflow: hidden;
+}
+
+/* Image styling */
+.banner img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: brightness(70%); /* Dims the background image */
+}
+
+/* Gradient overlay */
+.banner::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+z-index: 1;
+}
+
+/* Text styling */
+.banner-text {
+z-index: 2;
+text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner-text h1 {
+font-size: 4rem;
+font-weight: 900;
+margin-bottom: 1rem;
+animation: fadeInDown 1.5s ease-in-out;
+}
+
+.banner-text h2 {
+color: tomato;
+font-weight: 700;
+margin-bottom: 2rem;
+animation: fadeInUp 2s ease-in-out;
+}
+/* Keyframes for animations */
+@keyframes fadeInDown {
+0% {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+100% {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+@keyframes fadeInUp {
+0% {
+  opacity: 0;
+  transform: translateY(50px);
+}
+100% {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+.banner-text h1 {
+  font-size: 76px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.banner-text h2 {
+  font-size: 27px;
+}
+}
+
+h1.about-header {
+  /* padding: 10px; */
+  /* margin: 20px 0; */
+  font-size: 60px;
+  color: #E32227;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
+  animation: fadeInBounce 2s ease-in-out;
+}
+
+@keyframes fadeInBounce {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  50% {
+      opacity: 0.5;
+      transform: translateY(10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+h3 {
+position: relative;
+display: inline-block;
+padding-bottom: 5px;
+}
+
+h3::after {
+content: '';
+position: absolute;
+left: 50%;
+bottom: 0;
+transform: translateX(-50%);
+width: 50%;
+height: 3px;
+background: #ff6347;
+border-radius: 2px;
+}
+
+.row {
+overflow: hidden;
+justify-content: center;
+}
+.img-1 {
+    animation: zoomIn 2s ease-in-out;
+    transition: transform 0.5s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+@keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+.title-1 {
+  font-size: 2.6rem;
+  color: #2e5a1b;
+  font-weight: 600;
+  letter-spacing: 6px;
+  animation: slideIn 1.5s ease-in-out;
+}
+.title1-span {
+    color: #E32227;
+}
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+.title-2 {
+    font-size: 1.5rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+.content-1 {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #343a40;
+  animation: fadeInContent 2s ease-in-out !important;
+}
+@keyframes fadeInContent {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
+  h3::after {
+    left: 26%;
+  }
+  .img-1 {
+    width: 90%;
+  }
+  .about-col {
+    margin-top: -8px !important;
+  }
+}
+.mission-side, 
+.vision-side {
+padding: 30px 50px;
+margin: 35px auto !important;
+width: 40% !important;
+background: #eecf1a;
+border-radius: 20px;
+color: #2a2a2a; /* Dark text */
+font-weight: bold;
+font-size: 17px;
+text-align: center;
+position: relative;
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+overflow: hidden;
+transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-side::before,
+.vision-side::before {
+content: "";
+position: absolute;
+top: 0;
+left: 50%;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.1); /* Semi-transparent black overlay */
+transform: translateX(-50%) translateY(-100%);
+transition: transform 0.4s ease, opacity 0.4s ease-out;
+border-radius: 20px;
+opacity: 0;
+}
+
+.mission-side::after,
+.vision-side::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 100%;
+height: 5px;
+background: #ffcc00; /* Yellow underline */
+transform: translateX(-50%) scaleX(0);
+transition: transform 0.4s ease, scaleX 0.4s ease, opacity 0.3s ease-in-out;
+border-radius: 4px;
+opacity: 0;
+}
+
+.mission-side:hover::before,
+.vision-side:hover::before {
+transform: translateX(-50%) translateY(0);
+opacity: 1;
+}
+
+.mission-side:hover::after,
+.vision-side:hover::after {
+transform: translateX(-50%) scaleX(1);
+opacity: 1;
+}
+
+.mission-side:hover, .vision-side:hover {
+background: #ffd700;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transform: translateY(-8px) scale(1.05);
+}
+
+.mission-side span, 
+.vision-side span {
+position: relative;
+z-index: 1;
+}
+
+@keyframes glowPulse {
+0% {
+  box-shadow: 0 0 15px #ffcc00, 0 0 25px #ffcc00;
+}
+50% {
+  box-shadow: 0 0 35px #ffd700, 0 0 50px #ffd700;
+}
+100% {
+  box-shadow: 0 0 15px #ffcc00, 0 0 25px #ffcc00;
+}
+}
+
+/* New shadow expanding effect */
+@keyframes shadowExpand {
+0% {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+50% {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+100% {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+}
+
+.box-header {
+font-family: math;
+margin-right: 98px;
+font-weight: 600;
+font-size: 32px;
+}
+
+.box-img {
+  width: 65%;
+  background: #ffffff;
+  border: 1px solid white;
+}
+.box-content {
+font-family: math;
+margin-top: 17px;
+letter-spacing: 2px;
+color: #474f56;
+}
+@media screen and (max-width: 600px){
+  .mission-side, .vision-side {
+    padding: 12px 12px;
+    margin: 37px auto !important;
+    width: 90% !important;
+  }
+.box-header {
+  margin-right: 14px;
+}
+  
+}
+
+/* Main timeline container */
+.timeline {
+position: relative;
+padding: 2rem 0;
+margin: 2rem 0;
+}
+
+/* Vertical line */
+.timeline::before {
+content: '';
+position: absolute;
+top: 0;
+bottom: 0;
+left: 50%;
+width: 6px;
+background-color: #77e340; /* Coral color */
+transform: translateX(-50%);
+}
+
+.timeline-header {
+font-size: 26px;
+font-family: fantasy;
+color: #E32227;
+}
+.timeline-con {
+font-size: 19px;
+font-family: math;
+font-weight: 600;
+color: #474f56;
+}
+
+/* Individual timeline items */
+.timeline-item {
+position: relative;
+margin-bottom: 3rem;
+width: 50%;
+}
+
+/* Left-aligned timeline item */
+.timeline-item-left {
+left: 0;
+text-align: right;
+}
+
+/* Right-aligned timeline item */
+.timeline-item-right {
+left: 50%;
+text-align: left;
+}
+
+/* Clearfix for items */
+.timeline-item::after {
+content: '';
+display: block;
+clear: both;
+}
+
+/* Timeline content style */
+.timeline-content {
+padding: 1.5rem;
+border: 2px solid #77e340; /* Coral border */
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+animation: fadeInUp 1s ease-in-out;
+}
+
+/* Left-aligned item margin */
+.timeline-item-left .timeline-content {
+margin-right: 4rem;
+}
+
+/* Right-aligned item margin */
+.timeline-item-right .timeline-content {
+margin-left: 4rem;
+}
+
+/* Timeline dot */
+.timeline-dot {
+position: absolute;
+top: 0;
+left: 50%;
+width: 24px;
+height: 24px;
+background-color: #77e340; /* Coral dot */
+border: 4px solid #fff;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+box-shadow: 0 0 8px rgba(255, 127, 80, 0.4); /* Soft glow effect */
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+/* New animation: Bounce for timeline dots */
+@keyframes bounce {
+0% {
+    transform: translate(-50%, -50%) scale(1);
+}
+50% {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+100% {
+    transform: translate(-50%, -50%) scale(1);
+}
+}
+
+/* Apply the bounce animation to the timeline dot */
+.timeline-dot {
+animation: bounce 1.5s infinite ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+/* Adjust the position of the vertical line */
+.timeline::before {
+  left: 20px; /* Make the line closer to the content */
+  width: 2px; /* Make the vertical line thinner */
+}
+
+/* Adjust timeline items to be stacked vertically */
+.timeline-item {
+  width: 100%; /* Take up full width */
+  margin-bottom: 2rem;
+}
+
+/* Remove the left and right alignment */
+.timeline-item-left,
+.timeline-item-right {
+  left: 0;
+  text-align: center;
+}
+
+/* Adjust the timeline content to be full width */
+.timeline-content {
+  width: 90%; /* Make the content width smaller for better spacing */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Adjust timeline dot */
+.timeline-dot {
+  width: 18px; /* Smaller dot size */
+  height: 18px;
+}
+
+/* Adjust padding for better spacing */
+.timeline-content {
+  padding: 1rem; /* Reduce padding */
+}
+}
+.timeline-item-right .timeline-content {
+margin-left: 2rem;
+}
+
+.journey-header {
+  padding: 10px;
+  margin: 20px 0;
+  font-size: 60px;
+  color: #E32227;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
+  animation: fadeInBounce 2s ease-in-out;
+}
+
+@keyframes fadeInBounce {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  50% {
+      opacity: 0.5;
+      transform: translateY(10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
